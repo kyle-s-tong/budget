@@ -4,11 +4,13 @@ import "./index.css";
 </script>
 
 <template>
-  <header>
-    <div>
-      <TheNavigationBar />
-    </div>
-  </header>
+  <div class="h-screen relative">
+    <header class="absolute w-full z-10">
+      <div>
+        <TheNavigationBar />
+      </div>
+    </header>
 
-  <RouterView class="w-full h-full" />
+    <RouterView class="w-full h-full" />
+  </div>
 </template>
