@@ -21,9 +21,12 @@ export default {
 
 <template>
   <main class="h-full w-full flex flex-col items-center justify-center">
-    <div class="h-3/4 w-full flex">
+    <div class="h-5/6 w-full flex">
       <div class="flex flex-col w-2/3 px-2">
-        <div class="h-1/4">Current balance: 12304124.231</div>
+        <div class="h-1/4">
+          <div class="h-1/2">cheque | test | test</div>
+          <div class="h-1/2">Current balance: 12304124.231</div>
+        </div>
         <div class="h-3/4 grid grid-cols-3 gap-2">
           <div
             v-for="envelope in envelopes"
