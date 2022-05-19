@@ -1,9 +1,13 @@
 <script setup>
-import TheWelcome from '@/components/TheWelcome.vue'
+defineProps({
+  msg: {
+    type: String,
+  },
+});
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
+  <main class="h-full w-full">
+
   </main>
 </template>
