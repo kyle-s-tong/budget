@@ -1,11 +1,39 @@
 <script>
+import TransactionModal from "@/components/TransactionModal.vue";
+import EnvelopeCard from "@/components/EnvelopeCard.vue";
+
 export default {
+  components: [TransactionModal, EnvelopeCard],
   data() {
     return {
       envelopes: [],
+      showModal: false,
     };
   },
+  computed: {
+    totalAccountBalance() {
+      if (this.envelopes.length === 0) {
+        return 0;
+      }
 
+      const rawBalances = this.envelopes.map((envelope) => envelope.balance);
+      const rawTotalBalance = rawBalances.reduce(
+        (previousBalance, currentBalance) => previousBalance + currentBalance
+      );
+
+      return rawTotalBalance.toFixed(2);
+    },
+  },
+  methods: {
+    confirm() {
+      // some code...
+      this.showModal = false;
+    },
+    cancel(close) {
+      // some code...
+      close();
+    },
+  },
   mounted() {
     this.envelopes = [
       { name: "test", balance: 1204.23 },
@@ -22,23 +50,26 @@ export default {
 <template>
   <main class="h-full w-full flex flex-col items-center justify-center">
     <div class="h-5/6 w-full flex">
-      <div class="flex flex-col w-2/3 px-2">
+      <div class="flex flex-col w-full px-2">
         <div class="h-1/4">
           <div class="h-1/2">cheque | test | test</div>
-          <div class="h-1/2">Current balance: 12304124.231</div>
-        </div>
-        <div class="h-3/4 grid grid-cols-3 gap-2">
-          <div
-            v-for="envelope in envelopes"
-            :key="envelope.name"
-            class="flex flex-col border border-1"
-          >
-            {{ envelope.name }}
-            {{ envelope.balance }}
+          <div class="h-1/2 flex flex-col justify-center">
+            <div class="text-xl">
+              Current balance: {{ totalAccountBalance }}
+            </div>
           </div>
         </div>
+        <div class="h-3/4">
+          <div class="h-1/2 grid grid-cols-3 gap-2 gap-y-4 py-4">
+            <EnvelopeCard
+              v-for="envelope in envelopes"
+              :key="envelope.name"
+              :envelope="envelope"
+            />
+          </div>
+          <div class="h-1/2">Manage this account</div>
+        </div>
       </div>
-      <div class="w-1/3">test</div>
     </div>
   </main>
 </template>
