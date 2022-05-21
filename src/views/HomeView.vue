@@ -1,13 +1,11 @@
 <script>
-import TransactionModal from "@/components/TransactionModal.vue";
 import EnvelopeCard from "@/components/EnvelopeCard.vue";
 
 export default {
-  components: [TransactionModal, EnvelopeCard],
+  components: [EnvelopeCard],
   data() {
     return {
       envelopes: [],
-      showModal: false,
     };
   },
   computed: {
@@ -22,16 +20,6 @@ export default {
       );
 
       return rawTotalBalance.toFixed(2);
-    },
-  },
-  methods: {
-    confirm() {
-      // some code...
-      this.showModal = false;
-    },
-    cancel(close) {
-      // some code...
-      close();
     },
   },
   mounted() {
