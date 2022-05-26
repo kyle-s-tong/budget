@@ -1,4 +1,7 @@
 <script>
+import { API, graphqlOperation } from "aws-amplify";
+import { listEnvelopes } from "../graphql/queries";
+
 import EnvelopeCard from "@/components/EnvelopeCard.vue";
 
 export default {
@@ -22,15 +25,10 @@ export default {
       return rawTotalBalance.toFixed(2);
     },
   },
-  mounted() {
-    this.envelopes = [
-      { name: "test", balance: 1204.23 },
-      { name: "test2", balance: 1204.23 },
-      { name: "test3", balance: 1204.23 },
-      { name: "test4", balance: 1204.23 },
-      { name: "test5", balance: 1204.23 },
-      { name: "test6", balance: 1204.23 },
-    ];
+  async mounted() {
+    const envelopeResponse = await API.graphql(graphqlOperation(listEnvelopes));
+
+    this.envelopes = envelopeResponse.data.listEnvelopes.items;
   },
 };
 </script>
