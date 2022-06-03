@@ -44,7 +44,7 @@ export default {
     @cancel="cancel"
   />
   <div
-    class="flex border border-1 cursor-pointer justify-center relative shadow"
+    class="flex border border-1 border-gray-300 cursor-pointer justify-center relative shadow bg-white"
     v-on:click="openModal"
   >
     <div
@@ -53,7 +53,7 @@ export default {
       class="w-1/2 z-10 hover:w-3/4 hover:z-10 h-full absolute top-0 left-0"
     ></div>
     <div
-      class="absolute top-0 left-0 border-t-10 border-r-10 border-t-gray-200 border-r-green-600"
+      class="absolute top-0 left-0 border-t-10 border-r-10 border-t-gray-100 border-r-green-600"
     ></div>
     <button
       class="envelope-button h-full w-full flex justify-center relative"
@@ -65,7 +65,7 @@ export default {
       </div>
     </button>
     <div
-      class="absolute top-0 right-0 border-t-10 border-l-10 border-t-gray-200 border-l-red-600"
+      class="absolute top-0 right-0 border-t-10 border-l-10 border-t-gray-100 border-l-red-600"
     ></div>
     <div
       @mouseover="hoverExpense = true"

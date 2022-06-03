@@ -5,7 +5,7 @@ import { listEnvelopes } from "../graphql/queries";
 import EnvelopeCard from "@/components/EnvelopeCard.vue";
 
 export default {
-  name: "AccountTab",
+  name: "AccountSummary",
   components: [EnvelopeCard],
   props: ["account"],
   data() {
@@ -42,7 +42,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="bg-budget-blue p-4">
     <div class="h-1/6 flex flex-col justify-start">
       <div class="text-xl">Current balance: {{ totalAccountBalance }}</div>
     </div>

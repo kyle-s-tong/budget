@@ -6,7 +6,8 @@ import awsconfig from "./aws-exports";
 
 import TransactionModal from "@/components/TransactionModal.vue";
 import EnvelopeCard from "@/components/EnvelopeCard.vue";
-import AccountTab from "@/components/AccountTab.vue";
+import AccountSummary from "@/components/AccountSummary.vue";
+import AccountSummaryTab from "@/components/AccountSummaryTab.vue";
 
 import App from "./App.vue";
 import router from "./router";
@@ -22,6 +23,7 @@ app.use(router);
 app
   .component("TransactionModal", TransactionModal)
   .component("EnvelopeCard", EnvelopeCard)
-  .component("AccountTab", AccountTab);
+  .component("AccountSummary", AccountSummary)
+  .component("AccountSummaryTab", AccountSummaryTab);
 
 app.mount("#app");
